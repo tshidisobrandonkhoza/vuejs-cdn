@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS CDN Project</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <h1>{{message}}</h1>
+        <button @click="clickMe">Click Me</button>
+    </div>
+
+    <script>
+// function **data that returns an object
+// **method that returns an object
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: 'Vue Options!'
+                };
+            },
+            methods: {
+                clickMe() {
+                    console.log('Button Clicked!');
+                    this.message = 'Update to Hello'
+                },
+            },
+        });
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
