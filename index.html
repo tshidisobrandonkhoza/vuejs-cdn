@@ -9,24 +9,38 @@
 
 <body>
     <div id="app">
-
         <h1>{{message}}</h1>
-        <button @click="clickMe">Click Me</button>
+        <p v-if="!status">User Not Active</p>
+        <p v-else="!status">User Active</p>
+        <button @click="clickMe">Update User Status</button>
+
+        
+        <ul>
+            <li v-for="(task, index) in tasks" :key="task">
+                {{task}} - {{index}}
+            </li>
+        </ul>
+        <!-- <a v-bind:href="`${link}`" >Update User Status</a> -->
+        <a :href="`${link}`" >Update User Status</a>
     </div>
 
     <script>
-// function **data that returns an object
-// **method that returns an object
+        // function **data that returns an object
+        // **method that returns an object
         const app = Vue.createApp({
             data() {
                 return {
-                    message: 'Vue Options!'
+                    message: 'Vue Options!',
+                    status: true,
+                    tasks: ['Task A', 'Task B', 'Task C'],
+                    link: 'https://google.com'
                 };
             },
             methods: {
                 clickMe() {
                     console.log('Button Clicked!');
-                    this.message = 'Update to Hello'
+                    this.message = 'Update User'
+                    this.status = !this.status;
                 },
             },
         });
