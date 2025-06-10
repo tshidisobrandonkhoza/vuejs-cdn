@@ -12,7 +12,8 @@
         <h1>{{message}}</h1>
         <p v-if="!status">User Not Active</p>
         <p v-else="!status">User Active</p>
-        <button @click="clickMe">Update User Status</button>
+        <button v-on:click="clickMe">Update User Status</button>
+        <!-- <button @click="clickMe">Update User Status</button> -->
 
         
         <ul>
